@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum Format {
+public enum Format {
     case json
     case csv
 }
 
-final class FileCache<T: JSONable & CSVable> {
+public final class FileCache<T: JSONable & CSVable> {
 
-    func saveToFile(elements: [T], fileName: String, format: Format = .json) throws {
+    public func saveToFile(elements: [T], fileName: String, format: Format = .json) throws {
         guard let filename = try? FileManager.getFileURL(name: fileName) else {
             throw FileManagerError.fileNotFound
         }
@@ -37,7 +37,7 @@ final class FileCache<T: JSONable & CSVable> {
         }
     }
 
-    func readFromFile(fileName: String, format: Format = .json) throws -> [T] {
+    public func readFromFile(fileName: String, format: Format = .json) throws -> [T] {
         let filename = try FileManager.getFileURL(name: fileName)
         let isFileExist = FileManager.isFileExist(name: fileName)
         if !isFileExist {

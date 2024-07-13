@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum CSVError: Error {
+public enum CSVError: Error {
     case notValidCSVObject
     case notValidTodoItem
     case error(String)
 }
 
-protocol CSVable {
+public protocol CSVable {
     static var csvHeader: String { get }
     static func parse(csv: String) -> Self?
     var csv: String { get }

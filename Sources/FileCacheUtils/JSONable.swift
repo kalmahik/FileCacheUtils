@@ -9,13 +9,13 @@ import Foundation
 
 typealias JSONDictionary = [String: Any]
 
-enum JSONError: Error {
+public enum JSONError: Error {
     case notValidJSONObject
     case notValidTodoItem
     case error(String)
 }
 
-protocol JSONable {
+public protocol JSONable {
     static func parse(json: Any) -> Self?
     var json: Any { get }
 }
