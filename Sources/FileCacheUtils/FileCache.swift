@@ -13,6 +13,8 @@ public enum Format {
 }
 
 public final class FileCache<T: JSONable & CSVable> {
+    
+    public init() {}
 
     public func saveToFile(elements: [T], fileName: String, format: Format = .json) throws {
         guard let filename = try? FileManager.getFileURL(name: fileName) else {
